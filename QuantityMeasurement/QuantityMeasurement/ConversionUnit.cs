@@ -7,14 +7,17 @@ namespace QuantityMeasurement
     /// Conversion Units Class.
     /// </summary>
     public class ConversionUnits
-    {
-        /// <summary>
-        /// Conversions Units as enum.
-        /// </summary>
+    {     /// <summary>
+          /// Conversions Units as enum.
+          /// </summary>
         public enum Units
         {
-            INCH,
-            FEET,
+            FEET_TO_INCH,
+            INCH_TO_FEET,
+            FEET_TO_YARD,
+            INCH_TO_YARD,
+            YARD_TO_INCH,
+            YARD_TO_FEET,
         }
 
         /// <summary>
@@ -26,11 +29,23 @@ namespace QuantityMeasurement
         {
             switch (units)
             {
-                case Units.FEET:
+                case Units.INCH_TO_FEET:
                     return 1 / 12.0;
 
-                case Units.INCH:
+                case Units.FEET_TO_INCH:
                     return 1 * 12.0;
+
+                case Units.FEET_TO_YARD:
+                    return 0.33;
+
+                case Units.INCH_TO_YARD:
+                    return 1 / 36.0;
+
+                case Units.YARD_TO_INCH:
+                    return 36.0;
+
+                case Units.YARD_TO_FEET:
+                    return 3.0;
 
                 default:
                     return 0.0;
