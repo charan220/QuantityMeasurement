@@ -437,5 +437,17 @@ namespace QuantityMeasurementTest
             double kg = this.quantityMeasurement.GetConvertedValue(values, QuantityMeasurement.ConversionUnits.Units.TONNE_TO_KG, QuantityMeasurement.ConversionUnits.Units.GRAMS_TO_KG);
             Assert.AreEqual(1001.0, kg);
         }
+        /// <summary>
+        /// Test 8.1: To Add check 212 fahrenheit is equal to 100 celcius.
+        /// </summary>
+        [Test]
+        public void GivenCelciusValue_WhenConvertedToFahrenheit_ShouldReturnequalValue()
+        {
+            double[] fahrenheit = { 212.0 };
+            double[] celciusValue = { 100.0 };
+            double fahrenheitValueOne = this.quantityMeasurement.GetConvertedValue(fahrenheit, QuantityMeasurement.ConversionUnits.Units.UNIT);
+            double fahrenheitValueTwo = this.quantityMeasurement.GetConvertedValue(celciusValue, QuantityMeasurement.ConversionUnits.Units.CELCIUS_TO_FAHRENHEIT);
+            Assert.AreEqual(fahrenheitValueOne, fahrenheitValueTwo);
+        }
     }
     }
